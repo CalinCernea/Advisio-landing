@@ -38,11 +38,33 @@ export function FormSection() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    setSubmitted(true)
-    setIsSubmitting(false)
+    try {
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbyt_n4IuDRMXGMhEj1xLezqWw8WsuWE4WhEPizERCFCXc4qQqJwoWPyEa7L8do1yAk1/exec"
+      
+      const response = await fetch(scriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          business: formData.business,
+          email: formData.email,
+          city: formData.city,
+          type: formData.type,
+          timestamp: new Date().toISOString()
+        }),
+      })
+      
+      // With no-cors mode, we can't read the response, but if no error is thrown, assume success
+      setSubmitted(true)
+    } catch (error) {
+      console.error("Form submission error:", error)
+      alert("A apărut o eroare. Te rugăm să încerci din nou.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (submitted) {
