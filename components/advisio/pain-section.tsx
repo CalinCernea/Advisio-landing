@@ -4,8 +4,7 @@ const painPoints = [
   "Răspunsuri la recenzii Google — scrise manual, una câte una",
   "Postări săptămânale pe Instagram și Facebook create de la zero",
   "Scripturi de training pentru angajați noi, rescrise de fiecare dată",
-  "Aceleași 10 întrebări primite zilnic pe DM, la care răspunzi manual",
-  "Actualizarea meniului PDF la fiecare modificare de preț"
+  "Aceleași 10 întrebări primite zilnic pe DM, la care răspunzi manual"
 ]
 
 export function PainSection() {

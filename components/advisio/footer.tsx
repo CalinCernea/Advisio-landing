@@ -17,7 +17,7 @@ export function Footer() {
         </div>
         
         <div className="text-[0.76rem] text-white/25 leading-relaxed md:text-right">
-          Lansat din Cluj-Napoca · Fără spam · Datele tale sunt în siguranță<br />
+          Fără spam · Datele tale sunt în siguranță<br />
           © 2025 Advisio · <a href="mailto:hello@advisio.ro" className="text-white/35 hover:text-white/50 transition-colors">hello@advisio.ro</a>
         </div>
       </div>
