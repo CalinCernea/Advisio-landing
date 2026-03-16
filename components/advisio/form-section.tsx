@@ -37,10 +37,10 @@ export function FormSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     try {
-      const scriptUrl = "https://script.google.com/macros/s/AKfycbyt_n4IuDRMXGMhEj1xLezqWw8WsuWE4WhEPizERCFCXc4qQqJwoWPyEa7L8do1yAk1/exec"
-      
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbxW8TzZ6lADJBcKZZII2EQ6rs-SDiwMWuEy0fCx1BvlQVSBVpbv_KYQp2LtuGq_fhHH/exec"
+
       const response = await fetch(scriptUrl, {
         method: "POST",
         mode: "no-cors",
@@ -56,7 +56,7 @@ export function FormSection() {
           timestamp: new Date().toISOString()
         }),
       })
-      
+
       // With no-cors mode, we can't read the response, but if no error is thrown, assume success
       setSubmitted(true)
     } catch (error) {
