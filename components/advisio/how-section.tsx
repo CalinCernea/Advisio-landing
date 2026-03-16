@@ -12,7 +12,7 @@ const steps = [
   {
     num: "03",
     title: "Primești raportul",
-    text: "PDF în 24h cu prompt-uri gata de copiat și plan de acțiune prioritizat pe 30 de zile."
+    text: "PDF în 48h cu prompt-uri gata de copiat și plan de acțiune prioritizat pe 30 de zile."
   }
 ]
 

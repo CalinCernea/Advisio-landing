@@ -43,12 +43,12 @@ const auditItems = [
     ]
   },
   {
-    title: "Resurse bonus și recomandări",
+    title: "Opțional: îl facem noi pentru tine",
     meta: "½ pagină",
-    desc: "Link-uri directe către cursuri gratuite, canale YouTube relevante, și comunități unde poți pune întrebări. Plus o recomandare personalizată pentru următorul pas după ce termini planul de 30 de zile.",
+    desc: "Dacă preferi să nu te ocupi de implementare, îți oferim posibilitatea să implementăm un sistem complet pentru tine — la un preț fix de 297–497€. Fără presiune, fără abonament. Raportul este produsul; aceasta e o ofertă opțională pentru cei care vor rezultate mai rapide.",
     tags: [
-      { label: "Resurse curate", type: "navy" },
-      { label: "Comunități selectate", type: "navy" }
+      { label: "297–497€ implementare completă", type: "gold" },
+      { label: "Fără obligații", type: "navy" }
     ]
   }
 ]

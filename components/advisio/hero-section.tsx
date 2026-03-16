@@ -43,7 +43,7 @@ export function HeroSection() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/35 text-gold-light text-[0.72rem] font-medium px-4 py-1.5 rounded-full mb-8 tracking-[0.06em] uppercase w-fit">
           <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-          Audit AI personalizat · Livrat în 24h
+          Audit AI personalizat · Livrat în 48h
         </div>
 
         {/* Eyebrow */}
@@ -83,7 +83,7 @@ export function HeroSection() {
           <div className="text-[0.78rem] text-white/40 tracking-wide">instrumente AI recomandate per raport</div>
         </div>
         <div className="px-6 md:px-12 py-7 border-b md:border-b-0 md:border-r border-gold/15">
-          <div className="font-serif text-4xl font-semibold text-gold-light leading-none mb-1">24h</div>
+          <div className="font-serif text-4xl font-semibold text-gold-light leading-none mb-1">48h</div>
           <div className="text-[0.78rem] text-white/40 tracking-wide">timp de livrare al raportului PDF</div>
         </div>
         <div className="px-6 md:px-12 py-7">

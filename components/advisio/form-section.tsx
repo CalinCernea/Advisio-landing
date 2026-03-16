@@ -4,7 +4,7 @@ import { useState } from "react"
 import { ArrowRight, Check } from "lucide-react"
 
 const promises = [
-  "Raport PDF personalizat, livrat în 24h",
+  "Raport PDF personalizat, livrat în 48h",
   "5+ instrumente AI cu prompt-uri gata de folosit",
   "Plan de acțiune pe 30 de zile, săptămână cu săptămână",
   "Fără spam. Datele tale nu sunt vândute sau redistribuite."
