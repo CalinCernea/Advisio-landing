@@ -2,7 +2,7 @@ const steps = [
   {
     num: "01",
     title: "Trimiți datele",
-    text: "Meniu, link Google Maps, profil social. Sub 5 minute — fără onboarding complicat."
+    text: "Numele afacerii, orașul și tipul ei. Noi cercetăm restul. Sub 2 minute — fără documente, fără linkuri."
   },
   {
     num: "02",
