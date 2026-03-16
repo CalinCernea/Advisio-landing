@@ -1,7 +1,7 @@
 const metrics = [
   { value: "5", label: "secțiuni personalizate în fiecare raport" },
   { value: "5+", label: "instrumente AI cu prompt-uri incluse" },
-  { value: "24h", label: "de la înregistrare la raport livrat" },
+  { value: "48h", label: "de la înregistrare la raport livrat" },
   { value: "30", label: "zile plan de acțiune săptămână cu săptămână" }
 ]
 
