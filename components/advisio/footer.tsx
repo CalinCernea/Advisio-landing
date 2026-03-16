@@ -15,10 +15,10 @@ export function Footer() {
             </span>
           </div>
         </div>
-        
+
         <div className="text-[0.76rem] text-white/25 leading-relaxed md:text-right">
           Fără spam · Datele tale sunt în siguranță<br />
-          © 2025 Advisio · <a href="mailto:hello@advisio.ro" className="text-white/35 hover:text-white/50 transition-colors">hello@advisio.ro</a>
+          © 2026 Advisio · <a href="mailto:hello@advisio.ro" className="text-white/35 hover:text-white/50 transition-colors">advisioai@gmail.com</a>
         </div>
       </div>
     </footer>
