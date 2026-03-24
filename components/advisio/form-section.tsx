@@ -20,13 +20,24 @@ const businessTypes = [
   "Altul"
 ]
 
+const biggestProblems = [
+  "Nu am timp pentru social media",
+  "Recenzii negative fără răspuns",
+  "Nu știu cum să atrag clienți noi",
+  "Meniu / prezentare online slabă",
+  "Nu răspund rapid la mesaje",
+  "Altul"
+]
+
 export function FormSection() {
   const [formData, setFormData] = useState({
     name: "",
     business: "",
     email: "",
     city: "",
-    type: ""
+    type: "",
+    biggestProblem: "",
+    feedback: ""
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -41,23 +52,16 @@ export function FormSection() {
     try {
       const scriptUrl = "https://script.google.com/macros/s/AKfycbyht9UQAdOaPYQUZd1a-Vt-b7gxhaBhhwRUrBoy4NAigkScWokQl8J1s-KRzKZRopks/exec"
 
-      const response = await fetch(scriptUrl, {
+      await fetch(scriptUrl, {
         method: "POST",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: formData.name,
-          business: formData.business,
-          email: formData.email,
-          city: formData.city,
-          type: formData.type,
+          ...formData,
           timestamp: new Date().toISOString()
         }),
       })
 
-      // With no-cors mode, we can't read the response, but if no error is thrown, assume success
       setSubmitted(true)
     } catch (error) {
       console.error("Form submission error:", error)
@@ -78,7 +82,7 @@ export function FormSection() {
             Ești înregistrat!
           </h2>
           <p className="text-text-muted max-w-md mx-auto">
-            Ți-am trimis un email de confirmare. Echipa Advisio va analiza afacerea ta și va livra raportul personalizat în 24–48h.
+            Ți-am trimis un email de confirmare. Voi analiza afacerea ta și voi livra raportul personalizat în 24–48h.
           </p>
         </div>
       </section>
@@ -199,6 +203,39 @@ export function FormSection() {
                 <option key={type} value={type}>{type}</option>
               ))}
             </select>
+          </div>
+
+          {/* NEW — Cea mai mare problemă */}
+          <div className="flex flex-col gap-1">
+            <label htmlFor="biggestProblem" className="text-[0.72rem] font-medium text-text-muted tracking-wide uppercase">
+              Cea mai mare problemă acum
+            </label>
+            <select
+              id="biggestProblem"
+              value={formData.biggestProblem}
+              onChange={(e) => setFormData({ ...formData, biggestProblem: e.target.value })}
+              className="w-full bg-cream border border-border rounded-lg px-3.5 py-2.5 text-sm text-text-dark outline-none focus:border-gold focus:bg-card transition-colors appearance-none"
+            >
+              <option value="">Selectează (opțional)...</option>
+              {biggestProblems.map((p) => (
+                <option key={p} value={p}>{p}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* NEW — Feedback liber */}
+          <div className="flex flex-col gap-1">
+            <label htmlFor="feedback" className="text-[0.72rem] font-medium text-text-muted tracking-wide uppercase">
+              Ce te-a convins să te înscrii?
+            </label>
+            <textarea
+              id="feedback"
+              placeholder="Opțional — orice feedback ne ajută să îmbunătățim raportul pentru tine..."
+              value={formData.feedback}
+              onChange={(e) => setFormData({ ...formData, feedback: e.target.value })}
+              rows={3}
+              className="w-full bg-cream border border-border rounded-lg px-3.5 py-2.5 text-sm text-text-dark placeholder:text-text-muted/60 outline-none focus:border-gold focus:bg-card transition-colors resize-none"
+            />
           </div>
 
           <button
