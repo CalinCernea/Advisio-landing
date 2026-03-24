@@ -24,7 +24,7 @@ export function AboutSection() {
           </h2>
 
           <p className="text-sm text-white/60 leading-relaxed mb-4">
-            Mă numesc <strong className="text-white">Calin</strong>. Analizez prezența digitală a restaurantelor locale și identific exact unde se pierd clienți și timp — folosind instrumente AI pe care proprietarii nu au timp să le exploreze singuri.
+            Noi suntem <strong className="text-white">Advisio</strong>. Analizăm prezența digitală a restaurantelor locale și identific exact unde se pierd clienți și timp — folosind instrumente AI pe care proprietarii nu au timp să le exploreze singuri.
           </p>
 
           <p className="text-sm text-white/60 leading-relaxed mb-8">
