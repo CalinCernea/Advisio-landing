@@ -246,11 +246,6 @@ export function FormSection() {
             {isSubmitting ? "Se procesează..." : "Rezervă locul gratuit"}
             {!isSubmitting && <ArrowRight className="w-4 h-4" />}
           </button>
-
-          <div className="flex items-center gap-2 text-[0.78rem] text-text-muted mt-4">
-            <span className="w-1.5 h-1.5 bg-green-500 rounded-full shrink-0" />
-            {registered} afaceri înscrise · mai sunt <strong>{spotsLeft}</strong> locuri gratuite
-          </div>
         </form>
       </div>
     </section>
