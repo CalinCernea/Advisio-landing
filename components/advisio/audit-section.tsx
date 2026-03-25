@@ -26,9 +26,9 @@ const auditItems = [
   {
     title: "Instrumentele exacte + cum le folosești",
     meta: "2 pagini",
-    desc: "Un instrument per problemă identificată. Claude sau ChatGPT pentru conținut scris. Canva AI pentru materiale vizuale. Fiecare instrument primește: nume, cost (majoritatea gratuite), o propoziție despre ce face, și un prompt gata de copiat pe care îl poți folosi azi.",
+    desc: "Un instrument per problemă identificată. Claude sau ChatGPT pentru conținut scris. Canva AI pentru materiale vizuale. Fiecare instrument primește: nume, cost (majoritatea gratuite), o propoziție despre ce face, și un exemplu de output generat pe care îl poți folosi azi.",
     tags: [
-      { label: "Prompt-uri gata de copiat", type: "gold" },
+      { label: "Exemple generate real", type: "gold" },
       { label: "Gratuite în majoritate", type: "navy" },
       { label: "Implementabil azi", type: "green" }
     ]
@@ -45,10 +45,11 @@ const auditItems = [
   {
     title: "Opțional: îl facem noi pentru tine",
     meta: "½ pagină",
-    desc: "Dacă preferi să nu te ocupi de implementare, îți oferim posibilitatea să implementăm un sistem complet pentru tine — la un preț fix de 297–497€. Fără presiune, fără abonament. Raportul este produsul; aceasta e o ofertă opțională pentru cei care vor rezultate mai rapide.",
+    desc: "Raportul conține tot ce ai nevoie pentru a implementa singur. Dar dacă preferi să primești documentele gata făcute — 20 de răspunsuri la recenzii scrise, calendarul de 30 zile complet, template-urile DM bilingve și meniul rescris — le livrăm în 48 de ore, la 247 USD, o singură plată.",
     tags: [
-      { label: "297–497€ implementare completă", type: "gold" },
-      { label: "Fără obligații", type: "navy" }
+      { label: "247 USD · o singură plată", type: "gold" },
+      { label: "Livrare în 48h", type: "navy" },
+      { label: "Fără abonament", type: "navy" }
     ]
   }
 ]
@@ -76,7 +77,7 @@ export function AuditSection() {
 
       <div className="flex flex-col gap-0.5">
         {auditItems.map((item, i) => (
-          <div 
+          <div
             key={i}
             className={cn(
               "border rounded-lg overflow-hidden bg-card transition-colors cursor-pointer",
@@ -102,7 +103,7 @@ export function AuditSection() {
                 openIndex === i && "rotate-180"
               )} />
             </div>
-            
+
             {openIndex === i && (
               <div className="px-5 md:px-6 pb-5 pl-10 md:pl-14 border-t border-gold/15">
                 <p className="text-sm text-text-mid leading-relaxed mt-4">
@@ -110,7 +111,7 @@ export function AuditSection() {
                 </p>
                 <div className="flex flex-wrap gap-1.5 mt-3">
                   {item.tags.map((tag, j) => (
-                    <span 
+                    <span
                       key={j}
                       className={cn(
                         "text-[0.68rem] px-2.5 py-0.5 rounded-full font-medium tracking-wide",
