@@ -15,16 +15,16 @@ const auditPages = [
             <div key={i} className="flex-1 bg-[#2A1A10] rounded p-1.5 text-center">
               <div className="text-[#C17F3E] font-bold text-sm">{v}</div>
               <div className="text-[#888] text-[8px] mt-0.5">
-                {["Rating TA", "din 409 CJ", "Reply rate", "Facebook"][i]}
+                {["Rating TA", "din 409 loc.", "Reply rate", "Facebook"][i]}
               </div>
             </div>
           ))}
         </div>
         <p className="text-[#CCC]">
-          <strong className="text-white">Enigma Restaurant & Secret Garden</strong> este primul bar steampunk cinetic din lume, cu șapte mecanisme în mișcare...
+          <strong className="text-white">Restaurant X</strong> este un local cu concept unic în centrul vechi al orașului, cu o audiență solidă online și un flux constant de turiști locali și internaționali...
         </p>
         <p className="text-[#AAA]">
-          Imaginea din online este îngrijorătoare: rating <strong className="text-[#C17F3E]">3.4 pe TripAdvisor</strong> din 147 recenzii, poziția #137 din 409 restaurante Cluj.
+          Imaginea din online este îngrijorătoare: rating <strong className="text-[#C17F3E]">3.4 pe TripAdvisor</strong> din 147 recenzii, poziția #137 din 409 restaurante din oraș.
         </p>
         <div className="bg-[#FFF0E8]/10 border border-[#C17F3E]/30 rounded p-2 mt-2">
           <span className="text-[#C17F3E] font-semibold">⚠ SITUAȚIE CRITICĂ:</span>
@@ -140,7 +140,7 @@ export function PreviewSection() {
           </h2>
         </div>
         <p className="text-sm text-text-muted leading-relaxed max-w-[360px]">
-          Acesta este un preview din auditul real livrat pentru <strong className="text-text-dark">Enigma Restaurant Cluj</strong> — primul bar steampunk cinetic din lume. Fiecare raport e la fel de specific.
+          Acesta este un preview din structura unui audit real livrat pentru un restaurant din Cluj. Fiecare raport e la fel de specific — bazat pe datele reale ale afacerii tale.
         </p>
       </div>
 
@@ -173,7 +173,7 @@ export function PreviewSection() {
           {/* PDF chrome */}
           <div className="bg-[#E5E5E5] rounded-t-lg px-3 py-2 flex items-center gap-2">
             <FileText className="w-3.5 h-3.5 text-[#888]" />
-            <span className="text-[10px] text-[#666] font-medium">Audit_AI_Enigma.pdf</span>
+            <span className="text-[10px] text-[#666] font-medium">Audit_AI_Restaurant.pdf</span>
             <div className="ml-auto flex gap-1">
               {[0,1,2].map(i => <div key={i} className="w-2 h-2 rounded-full bg-[#CCC]" />)}
             </div>
@@ -184,7 +184,7 @@ export function PreviewSection() {
             {/* Header bar */}
             <div className="bg-[#1A0F0A] px-3 py-1.5 flex items-center justify-between">
               <span className="text-[#C17F3E] text-[8px] font-bold tracking-widest uppercase">AUDIT AI RESTAURANT</span>
-              <span className="text-[#888] text-[8px]">Enigma Restaurant | Cluj-Napoca</span>
+              <span className="text-[#888] text-[8px]">Restaurant X | Cluj-Napoca</span>
             </div>
             {/* Orange top stripe */}
             <div className="h-[3px] bg-[#C17F3E]" />
@@ -202,7 +202,7 @@ export function PreviewSection() {
 
             {/* Footer */}
             <div className="border-t border-gray-100 px-4 py-1.5 flex justify-between items-center">
-              <span className="text-[7px] text-gray-400">Confidential — Enigma Restaurant & Secret Garden</span>
+              <span className="text-[7px] text-gray-400">Confidential — Restaurant X</span>
               <span className="text-[7px] text-gray-400">Pagina {active + 1}</span>
             </div>
           </div>
