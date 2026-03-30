@@ -50,7 +50,7 @@ export function FormSection() {
     setIsSubmitting(true)
 
     try {
-      const scriptUrl = "https://script.google.com/macros/s/AKfycbxxszC2FpzydL9uJprh68zloJ8SOef-RKfs4C2Uc9o_ePwexQvu7Tt8aY-r3CPdVsLx/exec"
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbwRzYlH01ZksJxzArqGOZWAPiya_VS8spAa0zZnbyopS6BrVFNKw7lKYONTxZN-ahbo/exec"
 
       await fetch(scriptUrl, {
         method: "POST",
