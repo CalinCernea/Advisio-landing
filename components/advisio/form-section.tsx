@@ -94,18 +94,18 @@ export function FormSection() {
       {/* Left side */}
       <div className="lg:sticky lg:top-8">
         <p className="text-[0.72rem] font-medium tracking-[0.1em] uppercase text-gold-deep mb-4">
-          Lista de așteptare
+          Acces Prioritar
         </p>
         <h2 className="font-serif text-3xl md:text-4xl font-semibold text-text-dark leading-[1.15] mb-5 tracking-tight text-balance">
-          Rezervă-ți<br />locul gratuit.
+          Analizează-ți afacerea<br />înainte de a investi.
         </h2>
         <p className="text-sm text-text-muted leading-relaxed mb-8">
-          Primii 50 de participanți primesc raportul complet fără costuri. Fără card, fără abonament forțat.
+          Primești un dosar PDF complet cu toate instrumentele AI necesare pentru a-ți automatiza 80% din munca administrativă. Fără costuri, pentru primii 50 de participanți selectați.
         </p>
 
         <ul className="flex flex-col gap-2.5">
           {promises.map((promise, i) => (
-            <li key={i} className="flex items-center gap-2.5 text-sm text-text-mid">
+            <li key={i} className="flex items-center gap-2.5 text-sm text-text-mid font-medium">
               <div className="w-4 h-4 rounded-full border border-gold-deep flex items-center justify-center shrink-0">
                 <Check className="w-2.5 h-2.5 text-gold-deep" />
               </div>
@@ -118,10 +118,10 @@ export function FormSection() {
       {/* Form */}
       <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-[0_4px_40px_rgba(15,27,45,0.06)]">
         <h3 className="font-serif text-xl md:text-2xl font-semibold text-text-dark mb-1">
-          Înscrie-te acum
+          Solicită Auditul Gratuit
         </h3>
         <p className="text-sm text-text-muted mb-6">
-          Mai sunt <strong>{spotsLeft}</strong> locuri gratuite din 50.
+          Locuri disponibile azi: <strong>{spotsLeft}</strong> (din 50).
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -241,9 +241,9 @@ export function FormSection() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-navy text-white py-3.5 rounded-lg text-[0.92rem] font-medium hover:bg-navy-mid transition-colors active:scale-[0.99] disabled:bg-text-muted disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
+            className="w-full bg-navy text-white py-4 rounded-lg text-[0.92rem] font-bold hover:bg-navy-mid transition-all active:scale-[0.98] disabled:bg-text-muted disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2 shadow-lg shadow-navy/10"
           >
-            {isSubmitting ? "Se procesează..." : "Rezervă locul gratuit"}
+            {isSubmitting ? "Se procesează..." : "Generați Raportul Meu Gratuit"}
             {!isSubmitting && <ArrowRight className="w-4 h-4" />}
           </button>
         </form>

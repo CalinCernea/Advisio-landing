@@ -1,0 +1,155 @@
+.howMain {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 740px;
+    height: 1500px;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cards {
+    display: block;
+    width: 300px;
+    position: absolute;
+    top: 0px;
+    z-index: 10;
+}
+
+.cardWrapper {
+    display: block;
+    position: relative;
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.cardWrapper::before {
+    position: absolute;
+    content: " ";
+    display: block;
+    z-index: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background-color: transparent;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.card {
+    display: block;
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+    background: rgba(15, 27, 45, 0.4);
+    color: #FFFFFF;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.textHeader,
+.textCode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 310px;
+    padding: 20px;
+    text-overflow: clip;
+    filter: brightness(1.4);
+    overflow: hidden;
+    mix-blend-mode: plus-lighter;
+    text-shadow: 3px 3px 5px #0006;
+}
+
+.typeText {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.textHeader {
+    font-size: 34px;
+    font-weight: 600;
+    background: linear-gradient(-45deg, #912acd 20%, #e6b71d, #16a242, #03b0ea 70%, #03b0ea);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.textCode {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    background: linear-gradient(45deg, #b169db 20%, #f7d152, #46cf71, #0fbffa 70%, #03b0ea);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textCode dd {
+    margin-left: 20px;
+}
+
+.svgPathsContainer {
+    position: absolute;
+    top: 75px;
+    z-index: 0;
+    width: 740px;
+    height: 1500px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.svgPathsContainer use {
+    fill: none;
+    stroke: url(#cl1);
+    stroke-linecap: round;
+    stroke-width: var(--dot);
+    stroke-dashoffset: var(--strokeDashoffset);
+}
+
+.path1 {
+    --dot: 20px;
+    --gap: 50px;
+    stroke-dasharray: var(--dot) var(--gap) 120px var(--gap) var(--dot) var(--gap) 300px var(--gap) var(--dot) var(--gap) 150px var(--gap) var(--dot) 20000px;
+}
+
+.path2 {
+    --dot: 34px;
+    --gap: 60px;
+    stroke-dasharray: var(--dot) var(--gap) 120px var(--gap) var(--dot) var(--gap) 300px var(--gap) var(--dot) var(--gap) 150px var(--gap) var(--dot) 20000px;
+}
+
+.path3 {
+    --dot: 25px;
+    --gap: 40px;
+    stroke-dasharray: var(--dot) var(--gap) 120px var(--gap) var(--dot) var(--gap) 250px var(--gap) var(--dot) var(--gap) 150px var(--gap) var(--dot) 20000px;
+}
+
+.path4 {
+    --dot: 40px;
+    --gap: 70px;
+    stroke-dasharray: var(--dot) var(--gap) 100px var(--gap) var(--dot) var(--gap) 200px var(--gap) var(--dot) 20000px;
+}
+
+@media (max-width: 768px) {
+    .howMain {
+        transform: scale(0.6) !important;
+        height: 1200px !important;
+        transform-origin: top center;
+    }
+}
+
+@media (max-width: 480px) {
+    .howMain {
+        transform: scale(0.45) !important;
+        height: 950px !important;
+        transform-origin: top center;
+    }
+}

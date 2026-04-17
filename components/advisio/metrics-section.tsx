@@ -7,7 +7,7 @@ const metrics = [
 
 export function MetricsSection() {
   return (
-    <section className="bg-navy py-12 md:py-16 px-6 md:px-12">
+    <section className="bg-navy pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12">
       <div className="max-w-[1000px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
         {metrics.map((metric, i) => (
           <div 

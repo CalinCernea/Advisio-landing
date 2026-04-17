@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { FileText, ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { FileText } from "lucide-react"
 
 const auditPages = [
   {
@@ -91,8 +91,35 @@ const auditPages = [
         ))}
         <div className="bg-[#FFF8EC] border border-[#C17F3E]/40 rounded p-2 mt-1">
           <div className="text-[#7A5C00] font-semibold text-[8px] mb-1">EXEMPLU GENERAT — GATA DE FOLOSIT</div>
-          <div className="text-gray-600 italic">"Estimado explorador, lamentamos que vuestra expedición no alcanzara las expectativas..."</div>
+          <div className="text-gray-600 italic">&quot;Estimado explorador, lamentamos que vuestra expedición no alcanzara las expectativas...&quot;</div>
         </div>
+      </div>
+    )
+  },
+  {
+    label: "Secțiunea 4",
+    title: "Planul tău de 30 de zile",
+    color: "bg-white",
+    content: (
+      <div className="font-sans text-[10px] leading-relaxed space-y-2">
+        <div className="bg-[#FFF8EC] border border-[#C17F3E]/40 rounded p-1.5 mb-2">
+          <div className="text-[#C17F3E] font-bold text-[9px] mb-0.5">FOAIE DE PARCURS (ROADMAP)</div>
+          <div className="text-gray-600 text-[8px]">Trei acțiuni prioritare pe săptămână pentru a economisi timp.</div>
+        </div>
+        {[
+          { w: "L1", t: "Săptămâna 1 | Quick Wins", act: "Setup unelte AI & Răspunsuri recenzii restante" },
+          { w: "L2", t: "Săptămâna 2 | Automatizări DM", act: "Conectare și testare flow-uri de răspuns automat" },
+          { w: "L3", t: "Săptămâna 3 | Conținut", act: "Generare calendar postări pe o lună" },
+          { w: "L4", t: "Săptămâna 4 | Optimizare", act: "Ajustare ton & Update materiale vizuale" },
+        ].map((item) => (
+          <div key={item.w} className="flex gap-2 items-start border border-gray-100 rounded p-1.5">
+             <div className="text-[#C17F3E] font-bold text-[10px] mt-0.5">{item.w}</div>
+            <div>
+              <div className="font-semibold text-gray-800 text-[9px]">{item.t}</div>
+              <div className="text-gray-600 text-[8px]">{item.act}</div>
+            </div>
+          </div>
+        ))}
       </div>
     )
   },
@@ -125,11 +152,38 @@ const auditPages = [
 
 export function PreviewSection() {
   const [active, setActive] = useState(0)
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([])
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  // IntersectionObserver: activates whichever tab is most centered in viewport
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+
+    itemRefs.current.forEach((el, i) => {
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActive(i)
+          }
+        },
+        {
+          rootMargin: "-40% 0px -40% 0px", // triggers when item is within center 20% band
+          threshold: 0,
+        }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+
+    return () => observers.forEach((o) => o.disconnect())
+  }, [])
 
   return (
-    <section className="max-w-[1000px] mx-auto px-6 md:px-12 py-16 md:py-20">
+    <section ref={sectionRef} className="bg-cream-dark w-full border-b border-border">
+      <div className="max-w-[1000px] mx-auto px-6 md:px-12 py-16 md:py-24">
       {/* Header */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-end mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-end mb-16">
         <div>
           <p className="text-[0.72rem] font-medium tracking-[0.1em] uppercase text-gold-deep mb-4">
             Cum arată raportul
@@ -144,32 +198,46 @@ export function PreviewSection() {
         </p>
       </div>
 
-      {/* Preview container */}
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-8 items-start">
-        {/* Tab navigation */}
-        <div className="flex flex-col gap-2">
+      {/* Scroll-driven layout */}
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-12 items-start">
+
+        {/* LEFT: scrollable tab triggers */}
+        <div className="flex flex-col">
           {auditPages.map((page, i) => (
-            <button
+            <div
               key={i}
-              onClick={() => setActive(i)}
-              className={`text-left px-4 py-3 rounded-lg border transition-all ${
-                active === i
-                  ? "bg-navy text-white border-navy"
-                  : "bg-card border-border text-text-mid hover:border-gold/40"
-              }`}
+              ref={(el) => { itemRefs.current[i] = el }}
+              onClick={() => {
+                setActive(i)
+                itemRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" })
+              }}
+              className="min-h-[40vh] flex items-center cursor-pointer group"
             >
-              <div className={`text-[0.68rem] font-medium tracking-widest uppercase mb-0.5 ${active === i ? "text-gold" : "text-text-muted"}`}>
-                {page.label}
+              <div
+                className={`
+                  w-full px-5 py-5 rounded-xl border transition-all duration-500
+                  ${active === i
+                    ? "bg-navy text-white border-navy shadow-md"
+                    : "bg-card border-border text-text-mid opacity-40 hover:opacity-70 hover:border-gold/40"
+                  }
+                `}
+              >
+                <div className={`text-[0.68rem] font-medium tracking-widest uppercase mb-1 ${active === i ? "text-gold" : "text-text-muted"}`}>
+                  {page.label}
+                </div>
+                <div className={`text-base font-semibold ${active === i ? "text-white" : "text-text-dark"}`}>
+                  {page.title}
+                </div>
+                {active === i && (
+                  <div className="mt-2 h-0.5 w-8 bg-gold rounded-full" />
+                )}
               </div>
-              <div className={`text-sm font-medium ${active === i ? "text-white" : "text-text-dark"}`}>
-                {page.title}
-              </div>
-            </button>
+            </div>
           ))}
         </div>
 
-        {/* Mock PDF page */}
-        <div className="relative">
+        {/* RIGHT: sticky PDF preview */}
+        <div className="hidden md:block sticky top-[calc(50vh-200px)]">
           {/* PDF chrome */}
           <div className="bg-[#E5E5E5] rounded-t-lg px-3 py-2 flex items-center gap-2">
             <FileText className="w-3.5 h-3.5 text-[#888]" />
@@ -179,8 +247,11 @@ export function PreviewSection() {
             </div>
           </div>
 
-          {/* Page */}
-          <div className={`${auditPages[active].color} shadow-lg rounded-b-lg overflow-hidden`}>
+          {/* Page — animated on change */}
+          <div
+            key={active}
+            className={`${auditPages[active].color} shadow-lg rounded-b-lg overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-400`}
+          >
             {/* Header bar */}
             <div className="bg-[#1A0F0A] px-3 py-1.5 flex items-center justify-between">
               <span className="text-[#C17F3E] text-[8px] font-bold tracking-widest uppercase">AUDIT AI RESTAURANT</span>
@@ -207,25 +278,16 @@ export function PreviewSection() {
             </div>
           </div>
 
-          {/* Navigation arrows */}
-          <div className="flex justify-between mt-3">
-            <button
-              onClick={() => setActive(Math.max(0, active - 1))}
-              disabled={active === 0}
-              className="p-1.5 rounded border border-border text-text-muted hover:border-gold hover:text-gold disabled:opacity-30 transition-colors"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <span className="text-xs text-text-muted self-center">
-              {active + 1} / {auditPages.length}
-            </span>
-            <button
-              onClick={() => setActive(Math.min(auditPages.length - 1, active + 1))}
-              disabled={active === auditPages.length - 1}
-              className="p-1.5 rounded border border-border text-text-muted hover:border-gold hover:text-gold disabled:opacity-30 transition-colors"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
+          {/* Progress dots */}
+          <div className="flex justify-center gap-1.5 mt-4">
+            {auditPages.map((_, i) => (
+              <div
+                key={i}
+                className={`rounded-full transition-all duration-300 ${
+                  active === i ? "w-4 h-1.5 bg-gold" : "w-1.5 h-1.5 bg-border"
+                }`}
+              />
+            ))}
           </div>
 
           {/* CTA */}
@@ -239,6 +301,7 @@ export function PreviewSection() {
             </button>
           </p>
         </div>
+      </div>
       </div>
     </section>
   )

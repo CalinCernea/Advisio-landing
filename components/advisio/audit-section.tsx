@@ -64,7 +64,8 @@ export function AuditSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="max-w-[1000px] mx-auto px-6 md:px-12 py-16 md:py-20">
+    <section className="bg-white w-full border-b border-border">
+      <div className="max-w-[1000px] mx-auto px-6 md:px-12 py-16 md:py-24">
       <p className="text-[0.72rem] font-medium tracking-[0.1em] uppercase text-gold-deep mb-4">
         Conținutul raportului
       </p>
@@ -126,6 +127,7 @@ export function AuditSection() {
             )}
           </div>
         ))}
+      </div>
       </div>
     </section>
   )
